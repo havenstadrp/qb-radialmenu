@@ -566,54 +566,127 @@ Config.JobInteractions = {
         }
     },
     ["police"] = {
+        
+        -- {
+        --     id = 'emergencybutton',
+        --     title = 'Emergency button',
+        --     icon = 'bell',
+        --     type = 'client',
+        --     event = 'police:client:SendPoliceEmergencyAlert',
+        --     shouldClose = true
+        -- },
         {
-            id = 'emergencybutton',
-            title = 'Emergency button',
-            icon = 'bell',
-            type = 'client',
-            event = 'police:client:SendPoliceEmergencyAlert',
+            id = "policerack",
+            title = "Unlock Weapon",
+            icon = "lock",
+            type = "client",
+            event = "police:client:rifleback",
             shouldClose = true
-        }, {
-            id = 'checkvehstatus',
-            title = 'Check Tune Status',
-            icon = 'circle-info',
-            type = 'client',
-            event = 'qb-tunerchip:client:TuneStatus',
-            shouldClose = true
-        }, {
-            id = 'resethouse',
-            title = 'Reset house lock',
-            icon = 'key',
-            type = 'client',
-            event = 'qb-houses:client:ResetHouse',
-            shouldClose = true
-        }, {
-            id = 'takedriverlicense',
-            title = 'Revoke Drivers License',
-            icon = 'id-card',
-            type = 'client',
-            event = 'police:client:SeizeDriverLicense',
-            shouldClose = true
-        }, {
-            id = 'policeinteraction',
-            title = 'Police Actions',
-            icon = 'list-check',
-            items = {
+        },
+        {
+            id = 'radioactions',
+            title = 'Radio Frequencies',
+            icon = 'headset',
+            items =
+            {
                 {
-                    id = 'statuscheck',
-                    title = 'Check Health Status',
-                    icon = 'heart-pulse',
+                    id = 'joinradio1',
+                    title = 'Police/EMS/Fire',
+                    icon = '1',
                     type = 'client',
-                    event = 'hospital:client:CheckStatus',
+                    event = 'qb-radio:client:JoinRadioChannel1',
+                    shouldClose = true
+                },
+                {
+                    id = 'joinradio2',
+                    title = 'PD Scene',
+                    icon = '2',
+                    type = 'client',
+                    event = 'qb-radio:client:JoinRadioChannel2',
+                    shouldClose = true
+                },
+                {
+                    id = 'joinradio3',
+                    title = 'EMS',
+                    icon = '3',
+                    type = 'client',
+                    event = 'qb-radio:client:JoinRadioChannel3',
+                    shouldClose = true
+                },
+                {
+                    id = 'joinradio4',
+                    title = 'Fire',
+                    icon = '4',
+                    type = 'client',
+                    event = 'qb-radio:client:JoinRadioChannel4',
+                    shouldClose = true
+                },
+                {
+                    id = 'joinradio5',
+                    title = 'DoC',
+                    icon = '5',
+                    type = 'client',
+                    event = 'qb-radio:client:JoinRadioChannel5',
+                    shouldClose = true
+                },
+                {
+                    id = 'joinradio6',
+                    title = 'Police Only',
+                    icon = '6',
+                    type = 'client',
+                    event = 'qb-radio:client:JoinRadioChannel6',
+                    shouldClose = true
+                },
+                {
+                    id = 'joinradio7',
+                    title = 'PD Training',
+                    icon = '7',
+                    type = 'client',
+                    event = 'qb-radio:client:JoinRadioChannel7',
+                    shouldClose = true
+                },
+                
+            }
+        },
+        
+        {
+            id = 'arrestactions',
+            title = 'Arrest Actions',
+            icon = 'handcuffs',
+            items =
+            {
+                {
+                    id = 'handcuff',
+                    title = 'Cuff',
+                    icon = 'user-lock',
+                    type = 'client',
+                    event = 'police:client:CuffPlayerSoft',
+                    shouldClose = true
+                },
+                {
+                    id = 'handcuff',
+                    title = 'Cuff & Shackle',
+                    icon = 'shoe-prints',
+                    type = 'client',
+                    event = 'police:client:CuffPlayer',
                     shouldClose = true
                 }, {
-                    id = 'checkstatus',
-                    title = 'Check status',
-                    icon = 'question',
+                    id = 'playerinvehicle',
+                    title = 'Put In Vehicle',
+                    icon = 'car-side',
                     type = 'client',
-                    event = 'police:client:CheckStatus',
+                    event = 'police:client:PutPlayerInVehicle',
                     shouldClose = true
                 }, {
+                    id = 'playeroutvehicle',
+                    title = 'Take Out Of Vehicle',
+                    icon = 'car-side',
+                    type = 'client',
+                    event = 'police:client:SetPlayerOutVehicle',
+                    shouldClose = true
+                },
+                
+                {
                     id = 'escort',
                     title = 'Escort',
                     icon = 'user-group',
@@ -627,16 +700,121 @@ Config.JobInteractions = {
                     type = 'client',
                     event = 'police:client:SearchPlayer',
                     shouldClose = true
-                }, {
+                },
+            }
+        },
+        {
+            id = 'inmatesentencing',
+            title = 'Inmate Sentencing',
+            icon = 'building-shield',
+            items =
+            {
+                {
                     id = 'jailplayer',
                     title = 'Jail',
                     icon = 'user-lock',
                     type = 'client',
                     event = 'police:client:JailPlayer',
                     shouldClose = true
-                }
+                },
+                {
+                    id = 'comserv',
+                    title = 'Comm Service',
+                    icon = 'user-lock',
+                    type = 'client',
+                    event = 'qb-communityservice:client:opencomserv',
+                    shouldClose = true
+                },
             }
-        }, {
+        },
+            {
+                id = 'policefieldactions',
+                title = 'Field Actions',
+                icon = 'list-check',
+                items =
+                {
+                    {
+                        id = 'statuscheck',
+                        title = 'Check Health Status',
+                        icon = 'heart-pulse',
+                        type = 'client',
+                        event = 'hospital:client:CheckStatus',
+                        shouldClose = true
+                    }, {
+                        id = 'checkstatus',
+                        title = 'Check GSR Status',
+                        icon = 'gun',
+                        type = 'client',
+                        event = 'police:client:CheckStatus',
+                        shouldClose = true
+                    }, {
+                        id = 'resethouse',
+                        title = 'Reset house lock',
+                        icon = 'key',
+                        type = 'client',
+                        event = 'qb-houses:client:ResetHouse',
+                        shouldClose = true
+                    },
+                    {
+                        id = 'toggleduty',
+                        title = 'Clock In/Out',
+                        icon = 'business-time',
+                        type = 'client',
+                        event = 'qb-policejob:ToggleDuty',
+                        shouldClose = true
+                    },
+                },
+            },
+            {
+                id = 'policevehicletasks',
+                title = 'DMV Tasks',
+                icon = 'list-check',
+                items =
+                {
+                    {
+                        id = 'checkvehstatus',
+                        title = 'Check Tune Status',
+                        icon = 'circle-info',
+                        type = 'client',
+                        event = 'qb-tunerchip:client:TuneStatus',
+                        shouldClose = true
+                    },
+                    {
+                        id = 'checkvehstatus',
+                        title = 'Search For VIN',
+                        icon = 'circle-info',
+                        type = 'client',
+                        event = 'qb-vinscratch:searchvinnum',
+                        shouldClose = true
+                    }, 
+                    {
+                        id = 'takedriverlicense',
+                        title = 'Revoke Drivers License',
+                        icon = 'id-card',
+                        type = 'client',
+                        event = 'police:client:SeizeDriverLicense',
+                        shouldClose = true
+                    },
+                    {
+                        id = 'impoundvehicle',
+                        title = 'PD Impound Vehicle',
+                        icon = 'car-burst',
+                        type = 'client',
+                        event = 'police:client:ImpoundVehicleRadialFull',
+                        shouldClose = true
+                    },
+                    {
+                        id = 'sendtodepot',
+                        title = 'Send Vehicle To Depot',
+                        icon = 'square-parking',
+                        type = 'client',
+                        event = 'police:client:ImpoundVehicleRadial',
+                        shouldClose = true
+                    },
+                    
+                }
+        }, 
+        {
             id = 'policeobjects',
             title = 'Objects',
             icon = 'road',
@@ -658,7 +836,7 @@ Config.JobInteractions = {
                 }, {
                     id = 'spawnschotten',
                     title = 'Speed Limit Sign',
-                    icon = 'sign',
+                    icon = 'signs-post',
                     type = 'client',
                     event = 'police:client:spawnRoadSign',
                     shouldClose = false
@@ -676,14 +854,16 @@ Config.JobInteractions = {
                     type = 'client',
                     event = 'police:client:spawnLight',
                     shouldClose = false
-                }, {
-                    id = 'spikestrip',
-                    title = 'Spike Strips',
-                    icon = 'caret-up',
-                    type = 'client',
-                    event = 'police:client:SpawnSpikeStrip',
-                    shouldClose = false
-                }, {
+                },
+                -- {
+                --     id = 'spikestrip',
+                --     title = 'Spike Strips',
+                --     icon = 'caret-up',
+                --     type = 'client',
+                --     event = 'police:client:SpawnSpikeStrip',
+                --     shouldClose = false
+                -- }, 
+                {
                     id = 'deleteobject',
                     title = 'Remove object',
                     icon = 'trash',

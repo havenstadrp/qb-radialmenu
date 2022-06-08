@@ -118,7 +118,7 @@ local function attachToStretcher()
             loadAnim("anim@heists@box_carry@")
             TaskPlayAnim(ped, 'anim@heists@box_carry@', 'idle', 8.0, 8.0, -1, 50, 0, false, false, false)
             SetTimeout(150, function()
-                AttachEntityToEntity(stretcherObject, ped, GetPedBoneIndex(ped, 28422), 0.0, -1.0, -0.50, 195.0, 180.0, 180.0, 90.0, false, false, true, false, 2)
+                AttachEntityToEntity(stretcherObject, ped, GetPedBoneIndex(ped, 28422), 0.0, 0.0, 0.00, 195.0, 180.0, 180.0, 90.0, false, false, true, false, 2)
             end)
             FreezeEntityPosition(stretcherObject, false)
         else
@@ -129,7 +129,7 @@ local function attachToStretcher()
                 loadAnim("anim@heists@box_carry@")
                 TaskPlayAnim(ped, 'anim@heists@box_carry@', 'idle', 8.0, 8.0, -1, 50, 0, false, false, false)
                 SetTimeout(150, function()
-                    AttachEntityToEntity(stretcherObject, ped, GetPedBoneIndex(ped, 28422), 0.0, -1.0, -1.0, 195.0, 180.0, 180.0, 90.0, false, false, true, false, 2)
+                    AttachEntityToEntity(stretcherObject, ped, GetPedBoneIndex(ped, 28422), 0.0, 0.0, 0.0, 195.0, 180.0, 180.0, 90.0, false, false, true, false, 2)
                 end)
                 FreezeEntityPosition(stretcherObject, false)
             end
@@ -320,7 +320,13 @@ CreateThread(function()
                         sleep = 0
                         DrawText3Ds(offsetCoords.x, offsetCoords.y, offsetCoords.z + 0.2, Lang:t("general.lay_stretcher_button"))
                         if IsControlJustPressed(0, 47) or IsDisabledControlJustPressed(0, 47) then
-                            LayOnStretcher()
+                            -- LayOnStretcher()
+                            local player = source
+                            if (player > 0) then
+                                TriggerClientEvent("ARPF-EMS:getintostretcher", source)
+                                CancelEvent()
+                            end
+                            
                             sleep = 100
                         end
                     end
@@ -333,7 +339,7 @@ CreateThread(function()
                     if not isAttached then
                         sleep = 0
                         DrawText3Ds(offsetCoords.x, offsetCoords.y, offsetCoords.z + 0.2, Lang:t("general.get_off_stretcher_button"))
-                        if IsControlJustPressed(0, 47) or IsDisabledControlJustPressed(0, 47) then
+                        if IsControlJustPressed(0, 73) or IsDisabledControlJustPressed(0, 73) then
                             getOffStretcher()
                             sleep = 100
                         end

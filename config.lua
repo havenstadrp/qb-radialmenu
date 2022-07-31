@@ -1,6 +1,7 @@
 Config = {}
 
 Config.EnableExtraMenu = true
+Config.Fliptime = 15000
 
 Config.MenuItems = {
     [1] = {
@@ -111,16 +112,14 @@ Config.MenuItems = {
                         icon = 'key',
                         type = 'client',
                         event = 'qb-houses:client:giveHouseKey',
-                        shouldClose = true,
-                        items = {}
+                        shouldClose = true
                     }, {
                         id = 'removehousekey',
                         title = 'Remove House Keys',
                         icon = 'key',
                         type = 'client',
                         event = 'qb-houses:client:removeHouseKey',
-                        shouldClose = true,
-                        items = {}
+                        shouldClose = true
                     }, {
                         id = 'togglelock',
                         title = 'Toggle Doorlock',
@@ -566,7 +565,7 @@ Config.JobInteractions = {
         }
     },
     ["police"] = {
-        
+
         -- {
         --     id = 'emergencybutton',
         --     title = 'Emergency button',
@@ -645,10 +644,10 @@ Config.JobInteractions = {
                     event = 'qb-radio:client:JoinRadioChannel7',
                     shouldClose = true
                 },
-                
+
             }
         },
-        
+
         {
             id = 'arrestactions',
             title = 'Arrest Actions',
@@ -685,7 +684,7 @@ Config.JobInteractions = {
                     event = 'police:client:SetPlayerOutVehicle',
                     shouldClose = true
                 },
-                
+
                 {
                     id = 'escort',
                     title = 'Escort',
@@ -786,7 +785,7 @@ Config.JobInteractions = {
                         type = 'client',
                         event = 'qb-vinscratch:searchvinnum',
                         shouldClose = true
-                    }, 
+                    },
                     {
                         id = 'takedriverlicense',
                         title = 'Revoke Drivers License',
@@ -811,9 +810,9 @@ Config.JobInteractions = {
                         event = 'police:client:ImpoundVehicleRadial',
                         shouldClose = true
                     },
-                    
+
                 }
-        }, 
+        },
         {
             id = 'policeobjects',
             title = 'Objects',
@@ -836,7 +835,7 @@ Config.JobInteractions = {
                 }, {
                     id = 'spawnschotten',
                     title = 'Speed Limit Sign',
-                    icon = 'signs-post',
+                    icon = 'sign-hanging',
                     type = 'client',
                     event = 'police:client:spawnRoadSign',
                     shouldClose = false
@@ -862,7 +861,7 @@ Config.JobInteractions = {
                 --     type = 'client',
                 --     event = 'police:client:SpawnSpikeStrip',
                 --     shouldClose = false
-                -- }, 
+                -- },
                 {
                     id = 'deleteobject',
                     title = 'Remove object',
